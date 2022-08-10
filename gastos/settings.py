@@ -88,14 +88,15 @@ WSGI_APPLICATION = 'gastos.wsgi.application'
 
 
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd3qrbt0htpf6ue',
-        'USER': 'gqclvcnefrfcho',
-        'PASSWORD': 'fb13c74db948c0fd76d53f1d61188d34995849d7f30aaccd218432662fcbc0ec',
-        'HOST': 'ec2-3-225-110-188.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
