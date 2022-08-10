@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,37 +9,79 @@
 </head>
 <body>
     <h1>ENTRADAS</h1>
+<!-- Julho -->
 
-    <h2>Produtos</h2>
+<h2>JULHO</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th scope="col">#&emsp;</th>
+            <th scope="col">Categoria&emsp;</th>
+            <th scope="col">Data&emsp;</th>
+            <th scope="col">Descrição&emsp;</th>
+            <th scope="col">Valor&emsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entrada in entradas %}
+            {% if entrada.data.month == 7 %}
+                <tr>
+                    <td scope="row">{{ entrada.id }}&emsp;</td>
+                    <td scope="row">{{ entrada.categoria }}&emsp;</td>
+                    <td scope="row">{{ entrada.data.day }}-{{ entrada.data.month }}-{{ entrada.data.year }}&emsp;</td>
+                    <td scope="row">{{ entrada.descricao }}&emsp;</td>
+                    <td scope="row">{{ entrada.valor }}</td>
+                </tr>
+                
+            {% endif %}
+        {% endfor %}
+        
+        
+        
+        
+    </tbody>
+</table>
+<h3>TOTAL = {{ soma }}</h3>
+
+
+
+
+
+<!-- Agosto -->
+    <h2>AGOSTO</h2>
 
     <table>
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Valor</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Data</th>
+                <th scope="col">#&emsp;</th>
+                <th scope="col">Categoria&emsp;</th>
+                <th scope="col">Data&emsp;</th>
+                <th scope="col">Descrição&emsp;</th>
+                <th scope="col">Valor&emsp;</th>
             </tr>
         </thead>
         <tbody>
             {% for entrada in entradas %}
                 {% if entrada.data.month == 8 %}
                     <tr>
-                        <td scope="row">{{ entrada.id }}</td>
-                        <td scope="row">{{ entrada.categoria }}</td>
+                        <td scope="row">{{ entrada.id }}&emsp;</td>
+                        <td scope="row">{{ entrada.categoria }}&emsp;</td>
+                        <td scope="row">{{ entrada.data.day }}-{{ entrada.data.month }}-{{ entrada.data.year }}&emsp;</td>
+                        <td scope="row">{{ entrada.descricao }}&emsp;</td>
                         <td scope="row">{{ entrada.valor }}</td>
-                        <td scope="row">{{ entrada.descricao }}</td>
-                        <td scope="row">{{ entrada.data }}</td>
                     </tr>
+                    
                 {% endif %}
             {% endfor %}
-
             
-
+            
+            
+            
         </tbody>
     </table>
-    <h3>{{ soma }}</h3>
+    <h3>TOTAL = {{ soma }}</h3>
+    
 
 
     

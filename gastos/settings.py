@@ -25,11 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-#DEBUG = False
+#DEBUG = True
+DEBUG = False
 
-#ALLOWED_HOSTS = ['gastos-pessoais.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['gastos-pessoais.herokuapp.com']
+#ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,26 +79,26 @@ WSGI_APPLICATION = 'gastos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+} """
 
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd9sqfvp9tr75',
-        'USER': 'ledzjvcnwxdain',
-        'PASSWORD': '6d59ed5338260dedea67a6ecd9d1fc0e9a3848762c82d3f8a7a7cf054f5262e2',
-        'HOST': 'ec2-44-208-88-195.compute-1.amazonaws.com',
+        'NAME': 'd3qrbt0htpf6ue',
+        'USER': 'gqclvcnefrfcho',
+        'PASSWORD': 'fb13c74db948c0fd76d53f1d61188d34995849d7f30aaccd218432662fcbc0ec',
+        'HOST': 'ec2-3-225-110-188.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
-"""
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
