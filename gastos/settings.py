@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 #DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://gastos-pessoais.herokuapp.com/']
+ALLOWED_HOSTS = ['gastos-pessoais.herokuapp.com/']
 #ALLOWED_HOSTS = ['*']
 
 
