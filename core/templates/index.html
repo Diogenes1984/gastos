@@ -9,5 +9,12 @@
 </head>
 <body>
     <center><h1>WARNING</h1></center>
+
+
+    {% if logado %}
+        <a href="{% url 'entradas' %}">ENTRADAS</a>
+        <a href="{% url 'saidas' %}">SAÍDAS</a>
+    {% endif %}
+
 </body>
 </html>

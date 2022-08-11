@@ -1,29 +1,40 @@
-import datetime
 from django.shortcuts import render, redirect
 from .models import Categoria, Entrada, Saida
-
+from .utils import somaEntradasMeses, somaSaidaMeses
 
 def index(request):
-    return render(request, 'index.html')
+    context = {
+        'logado': True
+    }
+
+    if str(request.user) != 'AnonymousUser':
+
+        return render(request, 'index.html', context)
+    else:
+        return render(request, 'index.html')
+        #return redirect('index')
+
+
+
+    #return render(request, 'index.html')
 
 def entradas(request):
 
-    entradas = Entrada.objects.all()
-    
 
-
-    aux = 0
-    for entrada in entradas:
-        aux += entrada.valor
-    
-    context = {
-        'entradas': entradas,
-        'soma': aux
-    }
+    context = somaEntradasMeses()
 
     if str(request.user) != 'AnonymousUser':
 
         return render(request, 'entradas.html', context)
     else:
         #return render(request, 'entradas.html')
+        return redirect('index')
+
+def saidas(request):
+
+    context = somaSaidaMeses()
+    if str(request.user) != 'AnonymousUser':
+
+        return render(request, 'saidas.html', context)
+    else:
         return redirect('index')

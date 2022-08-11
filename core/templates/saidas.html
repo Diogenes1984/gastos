@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entradas</title>
+    <title>Saídas</title>
 </head>
 <body>
-    <h1>ENTRADAS</h1>
+    <h1>SAÍDAS</h1>
 <!-- Julho -->
 
 <h2>JULHO</h2>
@@ -24,14 +24,14 @@
         </tr>
     </thead>
     <tbody>
-        {% for entrada in entradas %}
-            {% if entrada.data.month == 7 %}
+        {% for saida in saidas %}
+            {% if saida.data.month == 7 %}
                 <tr>
-                    <td scope="row">{{ entrada.id }}&emsp;</td>
-                    <td scope="row">{{ entrada.categoria }}&emsp;</td>
-                    <td scope="row">{{ entrada.data.day }}-{{ entrada.data.month }}-{{ entrada.data.year }}&emsp;</td>
-                    <td scope="row">{{ entrada.descricao }}&emsp;</td>
-                    <td scope="row">{{ entrada.valor }}</td>
+                    <td scope="row">{{ saida.id }}&emsp;</td>
+                    <td scope="row">{{ saida.categoria }}&emsp;</td>
+                    <td scope="row">{{ saida.data.day }}-{{ saida.data.month }}-{{ saida.data.year }}&emsp;</td>
+                    <td scope="row">{{ saida.descricao }}&emsp;</td>
+                    <td scope="row">{{ saida.valor }}</td>
                 </tr>
                 
             {% endif %}
@@ -62,14 +62,14 @@
             </tr>
         </thead>
         <tbody>
-            {% for entrada in entradas %}
-                {% if entrada.data.month == 8 %}
+            {% for saida in saidas %}
+                {% if saida.data.month == 8 %}
                     <tr>
-                        <td scope="row">{{ entrada.id }}&emsp;</td>
-                        <td scope="row">{{ entrada.categoria }}&emsp;</td>
-                        <td scope="row">{{ entrada.data.day }}-{{ entrada.data.month }}-{{ entrada.data.year }}&emsp;</td>
-                        <td scope="row">{{ entrada.descricao }}&emsp;</td>
-                        <td scope="row">{{ entrada.valor }}</td>
+                        <td scope="row">{{ saida.id }}&emsp;</td>
+                        <td scope="row">{{ saida.categoria }}&emsp;</td>
+                        <td scope="row">{{ saida.data.day }}-{{ saida.data.month }}-{{ saida.data.year }}&emsp;</td>
+                        <td scope="row">{{ saida.descricao }}&emsp;</td>
+                        <td scope="row">{{ saida.valor }}</td>
                     </tr>
                     
                 {% endif %}
