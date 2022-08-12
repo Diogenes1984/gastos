@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa</title>
+</head>
+<body>
+    <form action="{% url 'pesquisa' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Pesquisar</button>
+        
+    </form>
+    <br>
+       {% if pesquisa %}
+        <ul>
+            {% for saida in saidas %}
+                
+                {% if saida.categoria.id == pesquisa %}
+                    <li>{{ saida.id }}</li>
+                    <li>{{ saida.valor }}</li>
+                    <li>{{ saida.data }}</li>
+                    <li>{{ saida.descricao }}</li>
+                    <li>{{ saida.categoria }}</li>
+                {% endif %}
+                
+                
+            {% endfor %}
+        </ul>
+       {% endif %}
+    
+</body>
+</html>

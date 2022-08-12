@@ -64,13 +64,15 @@
         <tbody>
             {% for saida in saidas %}
                 {% if saida.data.month == 8 %}
-                    <tr>
-                        <td scope="row">{{ saida.id }}&emsp;</td>
-                        <td scope="row">{{ saida.categoria }}&emsp;</td>
-                        <td scope="row">{{ saida.data.day }}-{{ saida.data.month }}-{{ saida.data.year }}&emsp;</td>
-                        <td scope="row">{{ saida.descricao }}&emsp;</td>
-                        <td scope="row">{{ saida.valor }}</td>
-                    </tr>
+                    {% if saida.categoria.id == 4  %}
+                        <tr>
+                            <td scope="row">{{ saida.id }}&emsp;</td>
+                            <td scope="row">{{ saida.categoria }}&emsp;</td>
+                            <td scope="row">{{ saida.data.day }}-{{ saida.data.month }}-{{ saida.data.year }}&emsp;</td>
+                            <td scope="row">{{ saida.descricao }}&emsp;</td>
+                            <td scope="row">{{ saida.valor }}</td>
+                        </tr>
+                    {% endif %}
                     
                 {% endif %}
             {% endfor %}
@@ -85,8 +87,7 @@
 
     <h3>TOTAL GERAL = {{ soma }}</h3>
     
-
-
+    
     
 </body>
 </html>
