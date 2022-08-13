@@ -25,7 +25,7 @@
     <br>
     <br>
     {% for entrada in entradas %}
-    {% if mes_pes == 0 and cat_pes == 0 %}
+        {% if mes_pes == 0 and cat_pes == 0 %}
 
     <table>
         <thead>
@@ -47,11 +47,11 @@
             </tr>
         </tbody>
     </table>
-    {% endif %}
+        {% endif %}
 
     <table>
         <thead>
-            {% if entrada.categoria.id == cat_pes and mes_pes == 0 %}
+        {% if entrada.categoria.id == cat_pes and mes_pes == 0 %}
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">&emsp;Categoria</th>
@@ -70,11 +70,11 @@
             </tr>
         </tbody>
     </table>
-    {% endif %}
+        {% endif %}
 
     <table>
         <thead>
-            {% if entrada.data.month == mes_pes and cat_pes == 0 %}
+        {% if entrada.data.month == mes_pes and cat_pes == 0 %}
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">&emsp;Categoria</th>
@@ -93,7 +93,7 @@
             </tr>
         </tbody>
     </table>
-    {% endif %}
+        {% endif %}
 
     {% endfor %}
 
