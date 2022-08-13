@@ -97,7 +97,8 @@
 
         <table>
             <thead>
-            {% if entrada.data.month == mes_pes and entrada.categoria == cat_pes %}
+            {% if entrada.data.month == mes_pes %}
+                {% if entrada.categoria == cat_pes %}
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">&emsp;Categoria</th>
@@ -116,6 +117,7 @@
                 </tr>
             </tbody>
         </table>
+                {% endif %}
             {% endif %}
 
     {% endfor %}

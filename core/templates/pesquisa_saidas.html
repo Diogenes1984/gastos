@@ -99,7 +99,8 @@
 
         <table>
         <thead>
-        {% if saida.data.month == mes_pes and saida.categoria = cat_pes %}
+        {% if saida.data.month == mes_pes %}
+            {% if saida.categoria == cat_pes %}
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">&emsp;Categoria</th>
@@ -118,6 +119,7 @@
             </tr>
         </tbody>
     </table>
+            {% end if %}
     
         {% endif %}
 
