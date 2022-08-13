@@ -2,12 +2,13 @@ from django import forms
 
 CATEGORIA_CHOICES = (
     (0, 'Todas'),
-    (1, 'Croupier'),
-    (2, 'Garçom'),
-    (3, 'Bebidas'),
-    (4, 'Banza'),
-    (5, 'Paieiro'),
-    (6, 'Larica'),
+    (1, 'Garçom'),
+    (2, 'Croupier'),
+    (3, 'Banza'),
+    (4, 'CNH'),
+    (5, 'Larica'),
+    (6, 'Bebidas'),
+    (7, 'Paieiro'),
 )
 
 MES_CHOICES = (
