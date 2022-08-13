@@ -94,6 +94,31 @@
             </tr>
         </tbody>
     </table>
+
+        {% endif %}
+
+        <table>
+        <thead>
+        {% if saida.data.month == mes_pes and saida.categoria = cat_pes %}
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">&emsp;Categoria</th>
+                <th scope="col">&emsp;&emsp;Data</th>
+                <th scope="col">&emsp;&emsp;Valor</th>
+                <th scope="col">&emsp;&emsp;Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">{{ saida.id }}</td>
+                <td scope="row">&emsp;{{ saida.categoria }}</td>
+                <td scope="row">&emsp;&emsp;{{ saida.data.day }}/{{ saida.data.month }}/{{ saida.data.year }}</td>
+                <td scope="row">&emsp;&emsp;{{ saida.valor }}</td>
+                <td scope="row">&emsp;&emsp;{{ saida.descricao }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
         {% endif %}
 
     {% endfor %}
