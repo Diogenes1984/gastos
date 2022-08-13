@@ -13,8 +13,12 @@
 
     {% if logado %}
         <a href="{% url 'entradas' %}">ENTRADAS</a>
+        <br><br>
         <a href="{% url 'saidas' %}">SAÍDAS</a>
-        <a href="{% url 'pesquisa' %}">PESQUISA</a>
+        <br><br>
+        <a href="{% url 'pesquisa_saidas' %}">PESQUISAR SAÌDAS</a>
+        <br><br>
+        <a href="{% url 'pesquisa_entradas' %}">PESQUISA ENTRADAS</a>
     {% endif %}
 
 </body>
