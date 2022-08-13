@@ -1,25 +1,9 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WARNING</title>
-</head>
-<body>
-    <center><h1>WARNING</h1></center>
+{% block title %}WARNING{% endblock %}
 
-
-    {% if logado %}
-        <a href="{% url 'entradas' %}">ENTRADAS</a>
-        <br><br>
-        <a href="{% url 'saidas' %}">SAÍDAS</a>
-        <br><br>
-        <a href="{% url 'pesquisa_saidas' %}">PESQUISAR SAÌDAS</a>
-        <br><br>
-        <a href="{% url 'pesquisa_entradas' %}">PESQUISA ENTRADAS</a>
-    {% endif %}
-
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <h1>WARNING</h1>
+</div>
+{% endblock %}

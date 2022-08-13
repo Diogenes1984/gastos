@@ -9,6 +9,9 @@ CATEGORIA_CHOICES = (
     (5, 'Larica'),
     (6, 'Bebidas'),
     (7, 'Paieiro'),
+    (8, 'Faculdade'),
+    (9, 'Celular'),
+    (10, 'Transporte'),
 )
 
 MES_CHOICES = (

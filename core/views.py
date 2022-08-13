@@ -41,7 +41,7 @@ def saidas(request):
         return redirect('index')
 
 def pesquisa_saidas(request):
-    saidas = Saida.objects.all()
+
     form = PesquisaForm(request.POST or None)
     if str(request.user) != 'AnonymousUser':
 
@@ -51,14 +51,43 @@ def pesquisa_saidas(request):
                 cat_pes = int(pesquisa['cat_pes'])
                 mes_pes = int(pesquisa['mes_pes'])
                             
-                form = PesquisaForm()
-                context = {
-                    'cat_pes': cat_pes,
-                    'mes_pes': mes_pes,
-                    'form': form,
-                    'saidas': saidas
-                }
-                return render(request, 'pesquisa_saidas.html', context)
+                if (mes_pes == 0 and cat_pes == 0):
+                    saidas = Saida.objects.all()
+
+                    form = PesquisaForm()
+               
+                    context = {
+                        'form': form,
+                        'saidas': saidas
+                    }
+                    return render(request, 'pesquisa_saidas.html', context)
+                elif (mes_pes == 0):
+                    saidas = Saida.objects.all().filter(categoria__id=cat_pes)
+                    form = PesquisaForm()
+               
+                    context = {
+                        'form': form,
+                        'saidas': saidas
+                    }
+                    return render(request, 'pesquisa_saidas.html', context)
+                elif (cat_pes == 0):
+                    saidas = Saida.objects.all().filter(data__month=mes_pes)
+                    form = PesquisaForm()
+               
+                    context = {
+                        'form': form,
+                        'saidas': saidas
+                    }
+                    return render(request, 'pesquisa_saidas.html', context)
+                else:
+                    saidas = Saida.objects.all().filter(data__month=mes_pes, categoria__id=cat_pes)
+                    form = PesquisaForm()
+               
+                    context = {
+                        'form': form,
+                        'saidas': saidas
+                    }
+                    return render(request, 'pesquisa_saidas.html', context)
         
         form = PesquisaForm()
         context = {
@@ -70,7 +99,7 @@ def pesquisa_saidas(request):
 
 
 def pesquisa_entradas(request):
-    entradas = Entrada.objects.all()
+
     form = PesquisaForm(request.POST or None)
     if str(request.user) != 'AnonymousUser':
 
@@ -79,16 +108,47 @@ def pesquisa_entradas(request):
                 pesquisa = form.get_categoria()
                 cat_pes = int(pesquisa['cat_pes'])
                 mes_pes = int(pesquisa['mes_pes'])
-                            
-                form = PesquisaForm()
-                context = {
-                    'cat_pes': cat_pes,
-                    'mes_pes': mes_pes,
-                    'form': form,
-                    'entradas': entradas
-                }
-                return render(request, 'pesquisa_entradas.html', context)
-        
+
+
+                if (mes_pes == 0 and cat_pes == 0):
+                    entradas = Entrada.objects.all()
+
+                    form = PesquisaForm()
+               
+                    context = {
+                        'form': form,
+                        'entradas': entradas
+                    }
+                    return render(request, 'pesquisa_entradas.html', context)
+                elif (mes_pes == 0):
+                    entradas = Entrada.objects.all().filter(categoria__id=cat_pes)
+                    form = PesquisaForm()
+               
+                    context = {
+                        'form': form,
+                        'entradas': entradas
+                    }
+                    return render(request, 'pesquisa_entradas.html', context)
+                elif (cat_pes == 0):
+                    entradas = Entrada.objects.all().filter(data__month=mes_pes)
+                    form = PesquisaForm()
+               
+                    context = {
+                        'form': form,
+                        'entradas': entradas
+                    }
+                    return render(request, 'pesquisa_entradas.html', context)
+                else:
+                    entradas = Entrada.objects.all().filter(data__month=mes_pes, categoria__id=cat_pes)
+                    form = PesquisaForm()
+               
+                    context = {
+                        'form': form,
+                        'entradas': entradas
+                    }
+                    return render(request, 'pesquisa_entradas.html', context)
+
+
         form = PesquisaForm()
         context = {
             'form': form
