@@ -53,39 +53,62 @@ def pesquisa_saidas(request):
                             
                 if (mes_pes == 0 and cat_pes == 0):
                     saidas = Saida.objects.all()
+                    soma = 0
+                    for saida in saidas:
+                        soma += saida.valor
 
                     form = PesquisaForm()
                
                     context = {
                         'form': form,
-                        'saidas': saidas
+                        'saidas': saidas,
+                        'soma': soma
                     }
                     return render(request, 'pesquisa_saidas.html', context)
                 elif (mes_pes == 0):
                     saidas = Saida.objects.all().filter(categoria__id=cat_pes)
+                    soma = 0
+                    for saida in saidas:
+                        soma += saida.valor
+
                     form = PesquisaForm()
                
                     context = {
                         'form': form,
-                        'saidas': saidas
+                        'saidas': saidas,
+                        'soma': soma
+
                     }
                     return render(request, 'pesquisa_saidas.html', context)
                 elif (cat_pes == 0):
                     saidas = Saida.objects.all().filter(data__month=mes_pes)
+
+                    soma = 0
+                    for saida in saidas:
+                        soma += saida.valor
+
                     form = PesquisaForm()
                
                     context = {
                         'form': form,
-                        'saidas': saidas
+                        'saidas': saidas,
+                        'soma': soma
+
                     }
                     return render(request, 'pesquisa_saidas.html', context)
                 else:
                     saidas = Saida.objects.all().filter(data__month=mes_pes, categoria__id=cat_pes)
+
+                    soma = 0
+                    for saida in saidas:
+                        soma += saida.valor
+
                     form = PesquisaForm()
                
                     context = {
                         'form': form,
-                        'saidas': saidas
+                        'saidas': saidas,
+                        'soma': soma
                     }
                     return render(request, 'pesquisa_saidas.html', context)
         
@@ -112,39 +135,57 @@ def pesquisa_entradas(request):
 
                 if (mes_pes == 0 and cat_pes == 0):
                     entradas = Entrada.objects.all()
+                    soma = 0
+                    for entrada in entradas:
+                        soma += entrada.valor
 
                     form = PesquisaForm()
                
                     context = {
                         'form': form,
-                        'entradas': entradas
+                        'entradas': entradas,
+                        'soma': soma
                     }
                     return render(request, 'pesquisa_entradas.html', context)
                 elif (mes_pes == 0):
                     entradas = Entrada.objects.all().filter(categoria__id=cat_pes)
+                    soma = 0
+                    for entrada in entradas:
+                        soma += entrada.valor
                     form = PesquisaForm()
                
                     context = {
                         'form': form,
-                        'entradas': entradas
+                        'entradas': entradas,
+                        'soma': soma
                     }
                     return render(request, 'pesquisa_entradas.html', context)
                 elif (cat_pes == 0):
                     entradas = Entrada.objects.all().filter(data__month=mes_pes)
+                    soma = 0
+                    for entrada in entradas:
+                        soma += entrada.valor
+
                     form = PesquisaForm()
                
                     context = {
                         'form': form,
-                        'entradas': entradas
+                        'entradas': entradas,
+                        'soma': soma
                     }
                     return render(request, 'pesquisa_entradas.html', context)
                 else:
                     entradas = Entrada.objects.all().filter(data__month=mes_pes, categoria__id=cat_pes)
+                    soma = 0
+                    for entrada in entradas:
+                        soma += entrada.valor
+
                     form = PesquisaForm()
                
                     context = {
                         'form': form,
-                        'entradas': entradas
+                        'entradas': entradas,
+                        'soma': soma
                     }
                     return render(request, 'pesquisa_entradas.html', context)
 
