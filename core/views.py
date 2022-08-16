@@ -28,7 +28,7 @@ def index(request):
                     for poup in poupanca:
                         soma_poupanca += poup.valor
                     
-                    ano_pes = 2022
+                    
                     saldo = soma_entradas - soma_saidas
                     form = RelatorioForm()
 
@@ -54,7 +54,7 @@ def index(request):
                     saidas = Saida.objects.all().filter(data__year=ano_pes)
                     soma_saidas = 0
                     for saida in saidas:
-                        soma_saidas += entrada.valor
+                        soma_saidas += saida.valor
 
                     poupanca = Poupanca.objects.all().filter(data__year=ano_pes)
                     soma_poupanca = 0
