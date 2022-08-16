@@ -31,6 +31,14 @@ MES_CHOICES = (
     (12, 'Dezembro'),
 )
 
+ANO_CHOICES = (
+    (0, 'Todos'),
+    (2022, '2022'),
+    (2023, '2023'),
+    (2024, '2024'),
+    (2025, '2025'),
+)
+
 class PesquisaForm(forms.Form):
 
     cat_pes = forms.ChoiceField(label='Selecione a Categoria', choices=CATEGORIA_CHOICES)
@@ -54,5 +62,15 @@ class PoupancaForm(forms.Form):
         mes_pes = self.cleaned_data['mes_pes']
         pesquisa = {
             'mes_pes': mes_pes
+        }
+        return pesquisa
+
+class RelatorioForm(forms.Form):
+    ano_pes = forms.ChoiceField(label='Escolha o ano do relatório', choices=ANO_CHOICES)
+
+    def get_ano(self):
+        ano_pes = self.cleaned_data['ano_pes']
+        pesquisa = {
+            'ano_pes': ano_pes
         }
         return pesquisa

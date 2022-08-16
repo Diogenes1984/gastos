@@ -8,22 +8,117 @@
     <h1>{{ titulo }}</h1>
     {% endif %}
     {% if logado %}
-    
-    <h1>TOTAL ENTRADAS = {{ soma_entradas }}</h1>
-    <h1>TOTAL SAÍDAS = {{ soma_saidas }}</h1>
-    <h1>SALDO = {{ saldo }}</h1>
-    <h1>POUPANÇA = {{ soma_poupanca }}</h1>
-    
+    <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Pesquisar</button>
 
-    
+    </form>
+    {% if saldo %}
+    <h1>ANO = {{ ano_pes }}</h1>
+    <h1>Total Entradas = {{ soma_entradas }}</h1>
+    <h1>Total Saídas = {{ soma_saidas }}</h1>
+    <h1>Total Poupança = {{ soma_poupanca }}</h1>
+    <h1>Saldo = {{ saldo }}</h1>
+    {% endif %}
+    <br>
+    <h2>Entradas</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Data</th>
+                <th scope="col">Valor</th>
+            </tr>
+        </thead>
+        <tbody>
 
-    <br><br>
+            {% for entrada in entradas %}
+            <tr>
+                <th scope="row">{{ entrada.id }}</th>
+                <td>{{ entrada.categoria }}</td>
+                <td>{{ entrada.descricao }}</td>
+                <td>{{ entrada.data }}</td>
+                <td>{{ entrada.valor }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th scope="row"><strong>#</strong></th>
+                <td><strong># # # # #</strong></td>
+                <td><strong># # # # #</strong></td>
+                <td><strong>TOTAL</strong></td>
+                <td><strong>{{ soma_entradas }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
 
+    <br>
+    <h2>Saídas</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Data</th>
+                <th scope="col">Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for saida in saidas %}
+            <tr>
+                <th scope="row">{{ saida.id }}</th>
+                <td>{{ saida.categoria }}</td>
+                <td>{{ saida.descricao }}</td>
+                <td>{{ saida.data }}</td>
+                <td>{{ saida.valor }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th scope="row"><strong>#</strong></th>
+                <td><strong># # # # #</strong></td>
+                <td><strong># # # # #</strong></td>
+                <td><strong>TOTAL</strong></td>
+                <td><strong>{{ soma_saidas }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
 
+    <br>
+    <h2>Poupança</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Data</th>
+                <th scope="col">Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for poup in poupanca %}
+            <tr>
+                <th scope="row">{{ poup.id }}</th>
+                <td>{{ poup.descricao }}</td>
+                <td>{{ poup.data }}</td>
+                <td>{{ poup.valor }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th scope="row"><strong>#</strong></th>
+                <td><strong># # # # #</strong></td>
+                <td><strong>TOTAL</strong></td>
+                <td><strong>{{ soma_poupanca }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
 
 
     {% endif %}
-    
+
 
 
 
