@@ -21,7 +21,7 @@ def index(request):
                     saidas = Saida.objects.all()
                     soma_saidas = 0
                     for saida in saidas:
-                        soma_saidas += entrada.valor
+                        soma_saidas += saida.valor
 
                     poupanca = Poupanca.objects.all()
                     soma_poupanca = 0
