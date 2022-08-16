@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Saídas{% endblock %}
+{% block title %}Poupança{% endblock %}
 
 {% block content %}
 
-<h1>Pesquisar Saídas </h1>
+<h1>Pesquisar POUPANÇA </h1>
 
-<form action="{% url 'pesquisa_saidas' %}" method="POST">
+<form action="{% url 'poupanca' %}" method="POST">
     {% csrf_token %}
     {{ form }}
     <button type="submit">Pesquisar</button>
@@ -19,31 +19,28 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Categoria</th>
             <th scope="col">Descrição</th>
             <th scope="col">Data</th>
             <th scope="col">Valor</th>
         </tr>
     </thead>
     <tbody>
-        {% for saida in saidas %}
+
+        {% for poup in poupanca %}
         <tr>
-            <th scope="row">{{ saida.id }}</th>
-            <td>{{ saida.categoria }}</td>
-            <td>{{ saida.descricao }}</td>
-            <td>{{ saida.data }}</td>
-            <td>{{ saida.valor }}</td>
+            <th scope="row">{{ poup.id }}</th>
+            <td>{{ poup.descricao }}</td>
+            <td>{{ poup.data }}</td>
+            <td>{{ poup.valor }}</td>
         </tr>
         {% endfor %}
         <tr>
             <th scope="row"><strong>#</strong></th>
-            <td><strong># # # # #</strong></td>
             <td><strong># # # # #</strong></td>
             <td><strong>TOTAL</strong></td>
             <td><strong>{{ soma }}</strong></td>
         </tr>
     </tbody>
 </table>
-
 
 {% endblock %}

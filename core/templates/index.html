@@ -4,6 +4,30 @@
 
 {% block content %}
 <div class="container">
-    <h1>WARNING</h1>
+    {% if titulo %}
+    <h1>{{ titulo }}</h1>
+    {% endif %}
+    {% if logado %}
+    
+    <h1>TOTAL ENTRADAS = {{ soma_entradas }}</h1>
+    <h1>TOTAL SAÍDAS = {{ soma_saidas }}</h1>
+    <h1>SALDO = {{ saldo }}</h1>
+    <h1>POUPANÇA = {{ soma_poupanca }}</h1>
+    
+
+    
+
+    <br><br>
+
+
+
+
+    {% endif %}
+    
+
+
+
+
+
 </div>
 {% endblock %}

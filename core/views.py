@@ -1,18 +1,46 @@
 from django.shortcuts import render, redirect
-from .models import Categoria, Entrada, Saida
+from .models import Categoria, Entrada, Saida, Poupanca
 from .utils import somaEntradasMeses, somaSaidaMeses
-from .forms import PesquisaForm
+from .forms import PesquisaForm, PoupancaForm
 
 def index(request):
-    context = {
-        'logado': True
-    }
 
     if str(request.user) != 'AnonymousUser':
+        entradas = Entrada.objects.all()
+        soma_entradas = 0
+        for entrada in entradas:
+            soma_entradas += entrada.valor
 
+        saidas = Saida.objects.all()
+        soma_saidas = 0
+        for saida in saidas:
+            soma_saidas += saida.valor
+        
+        poupanca = Poupanca.objects.all()
+        soma_poupanca = 0
+        for poup in poupanca:
+            soma_poupanca += poup.valor
+
+        saldo = soma_entradas - soma_saidas
+
+        
+        context = {
+            'logado': True,
+            'entradas': entradas,
+            'saidas': saidas,
+            'poupanca': poupanca,
+            'soma_entradas': soma_entradas,
+            'soma_saidas': soma_saidas,
+            'soma_poupanca': soma_poupanca,
+            'saldo': saldo
+        }
         return render(request, 'index.html', context)
     else:
-        return render(request, 'index.html')
+        titulo = 'WARNING'
+        context = {
+            'titulo': titulo
+        }
+        return render(request, 'index.html', context)
         #return redirect('index')
 
 
@@ -195,5 +223,50 @@ def pesquisa_entradas(request):
             'form': form
         }
         return render(request, 'pesquisa_entradas.html', context)
+    else:
+        return redirect('index')
+
+def poupanca(request):
+    form = PoupancaForm(request.POST or None)
+    if str(request.user) != 'AnonymousUser':
+        if str(request.method) == 'POST':
+            if form.is_valid():
+                pesquisa = form.get_poupanca()
+                mes_pes = int(pesquisa['mes_pes'])
+
+                if (mes_pes == 0):
+                    poupanca = Poupanca.objects.all()
+                    soma = 0
+                    for poup in poupanca:
+                        soma += poup.valor
+
+                    form = PoupancaForm()
+
+                    context = {
+                        'form': form,
+                        'poupanca': poupanca,
+                        'soma': soma
+                    }
+                    return render (request, 'poupanca.html', context)
+                else:
+                    poupanca = Poupanca.objects.all().filter(data__month=mes_pes)
+                    soma = 0
+                    for poup in poupanca:
+                        soma += poup.valor
+
+                    form = PoupancaForm
+
+                    context = {
+                        'form': form,
+                        'poupanca': poupanca,
+                        'soma': soma
+                    }
+                    return render(request, 'poupanca.html', context)
+        form = PoupancaForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'poupanca.html', context)
+
     else:
         return redirect('index')

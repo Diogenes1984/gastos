@@ -35,7 +35,7 @@ class PesquisaForm(forms.Form):
 
     cat_pes = forms.ChoiceField(label='Selecione a Categoria', choices=CATEGORIA_CHOICES)
 
-    mes_pes = forms.ChoiceField(label='Selecione a Mês', choices=MES_CHOICES)
+    mes_pes = forms.ChoiceField(label='Selecione o Mês', choices=MES_CHOICES)
 
     def get_categoria(self):
         cat_pes = self.cleaned_data['cat_pes']
@@ -46,4 +46,13 @@ class PesquisaForm(forms.Form):
         }
         return pesquisa
 
+class PoupancaForm(forms.Form):
     
+    mes_pes = forms.ChoiceField(label='Selecione o Mês', choices=MES_CHOICES)
+
+    def get_poupanca(self):
+        mes_pes = self.cleaned_data['mes_pes']
+        pesquisa = {
+            'mes_pes': mes_pes
+        }
+        return pesquisa
