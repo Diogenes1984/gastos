@@ -12,6 +12,7 @@ CATEGORIA_CHOICES = (
     (8, 'Faculdade'),
     (9, 'Celular'),
     (10, 'Transporte'),
+    (11, 'Acessórios/Equipamentos'),
 )
 
 MES_CHOICES = (

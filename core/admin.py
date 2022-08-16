@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Categoria, Entrada, Saida
+from .models import Categoria, Entrada, Saida, Poupanca
 
 
 @admin.register(Categoria)
@@ -17,3 +17,9 @@ class CategoriaAdmin(admin.ModelAdmin):
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('id', 'categoria', 'valor', 'descricao', 'data')
     list_filter = ('categoria', 'data')
+
+
+@admin.register(Poupanca)
+class PoupancaAdmin(admin.ModelAdmin):
+    list_display = ('id', 'valor', 'descricao', 'data')
+    list_filter = ('valor', 'data')

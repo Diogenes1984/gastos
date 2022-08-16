@@ -49,3 +49,14 @@ class Saida(Base):
 
     def __str__(self):
         return self.descricao
+
+    
+class Poupanca(Base):
+
+    class Meta:
+        verbose_name = 'Poupança'
+        verbose_name_plural = 'Poupança'
+
+
+    def __str__(self):
+        return self.descricao
