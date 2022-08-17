@@ -15,8 +15,10 @@ class CategoriaSaidaAdmin(admin.ModelAdmin):
 
 @admin.register(Entrada)
 class CategoriaAdmin(admin.ModelAdmin):
+    title = ['categoria', 'valor', 'data', 'descricao']
     list_display = ('id', 'categoria', 'valor', 'descricao', 'data')
     list_filter = ('categoria', 'data')
+    
 
 
 @admin.register(Saida)

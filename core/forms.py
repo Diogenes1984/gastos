@@ -4,6 +4,7 @@ CATEGORIA_ENT_CHOICES = (
     (0, 'Todas'),
     (1, 'Garçom'),
     (2, 'Croupier'),
+    (3, 'Poupança'),
 )
 
 CATEGORIA_SAI_CHOICES = (
@@ -16,6 +17,7 @@ CATEGORIA_SAI_CHOICES = (
     (6, 'Celular'),
     (7, 'Transporte'),
     (8, 'Acessórios/Equipamentos'),
+    (9, 'Poupança'),
 )
 
 MES_CHOICES = (
