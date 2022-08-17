@@ -6,11 +6,11 @@ __pycache__
 
 .venv
 
-venv
+venv/
 
 .env
 
-env
+env/
 
 .vscode
 
