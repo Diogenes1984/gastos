@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block title %}Poupança{% endblock %}
 
 {% block content %}
 
-<h1>Pesquisar POUPANÇA </h1>
+<h3>Pesquisar POUPANÇA</h3>
 
 <form action="{% url 'poupanca' %}" method="POST">
     {% csrf_token %}
-    {{ form }}
+    {{ form|crispy|cut:'*' }}
     <button type="submit">Pesquisar</button>
 
 </form>

@@ -1,18 +1,21 @@
 from django import forms
 
-CATEGORIA_CHOICES = (
+CATEGORIA_ENT_CHOICES = (
     (0, 'Todas'),
-    (1, 'Garçom'),
-    (2, 'Croupier'),
-    (3, 'Banza'),
-    (4, 'CNH'),
-    (5, 'Larica'),
-    (6, 'Bebidas'),
-    (7, 'Paieiro'),
-    (8, 'Faculdade'),
-    (9, 'Celular'),
-    (10, 'Transporte'),
-    (11, 'Acessórios/Equipamentos'),
+    (5, 'Garçom'),
+    (6, 'Croupier'),
+)
+
+CATEGORIA_SAI_CHOICES = (
+    (0, 'Todas'),
+    (1, 'Banza'),
+    (2, 'Larica'),
+    (3, 'Bebidas'),
+    (4, 'Paieiro'),
+    (5, 'Faculdade'),
+    (6, 'Celular'),
+    (7, 'Transporte'),
+    (8, 'Acessórios/Equipamentos'),
 )
 
 MES_CHOICES = (
@@ -39,9 +42,24 @@ ANO_CHOICES = (
     (2025, '2025'),
 )
 
-class PesquisaForm(forms.Form):
+class EntradaForm(forms.Form):
 
-    cat_pes = forms.ChoiceField(label='Selecione a Categoria', choices=CATEGORIA_CHOICES)
+    cat_pes = forms.ChoiceField(label='Selecione a Categoria', choices=CATEGORIA_ENT_CHOICES)
+
+    mes_pes = forms.ChoiceField(label='Selecione o Mês', choices=MES_CHOICES)
+
+    def get_categoria(self):
+        cat_pes = self.cleaned_data['cat_pes']
+        mes_pes = self.cleaned_data['mes_pes']
+        pesquisa = {
+            'cat_pes': cat_pes,
+            'mes_pes': mes_pes
+        }
+        return pesquisa
+
+class SaidaForm(forms.Form):
+
+    cat_pes = forms.ChoiceField(label='Selecione a Categoria', choices=CATEGORIA_SAI_CHOICES)
 
     mes_pes = forms.ChoiceField(label='Selecione o Mês', choices=MES_CHOICES)
 

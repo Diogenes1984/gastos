@@ -3,6 +3,8 @@ from .models import Entrada, Saida
 
 def somaEntradasMeses():
 
+
+
     entradas = Entrada.objects.all()
     aux_jan = 0
     aux_fev = 0
@@ -16,12 +18,11 @@ def somaEntradasMeses():
     aux_out = 0
     aux_nov = 0
     aux_dez = 0
-    aux =0
+    
 
     for entrada in entradas:
         if entrada.data.year == 2022:
 
-            aux += entrada.valor
             if entrada.data.month == 1:
                 aux_jan += entrada.valor
             elif entrada.data.month == 2:
@@ -48,8 +49,6 @@ def somaEntradasMeses():
                 aux_dez += entrada.valor
 
     context = {
-        'entradas': entradas,
-        'soma': aux,
         'soma_jan': aux_jan,
         'soma_fev': aux_fev,
         'some_mar': aux_mar,
@@ -82,7 +81,6 @@ def somaSaidaMeses():
     aux_out = 0
     aux_nov = 0
     aux_dez = 0
-    aux =0
 
     for saida in saidas:
         if saida.data.year == 2022:
@@ -114,8 +112,6 @@ def somaSaidaMeses():
                 aux_dez += saida.valor
 
     context = {
-        'saidas': saidas,
-        'soma': aux,
         'soma_jan': aux_jan,
         'soma_fev': aux_fev,
         'some_mar': aux_mar,
