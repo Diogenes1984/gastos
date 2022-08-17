@@ -2,8 +2,8 @@ from django import forms
 
 CATEGORIA_ENT_CHOICES = (
     (0, 'Todas'),
-    (5, 'Garçom'),
-    (6, 'Croupier'),
+    (1, 'Garçom'),
+    (2, 'Croupier'),
 )
 
 CATEGORIA_SAI_CHOICES = (
