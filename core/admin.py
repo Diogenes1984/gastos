@@ -15,15 +15,16 @@ class CategoriaSaidaAdmin(admin.ModelAdmin):
 
 @admin.register(Entrada)
 class CategoriaAdmin(admin.ModelAdmin):
-    title = ['categoria', 'valor', 'data', 'descricao']
-    list_display = ('id', 'categoria', 'valor', 'descricao', 'data')
+    fields = ['categoria', 'valor', 'data', 'descricao']
+    list_display = ('id', 'categoria', 'valor', 'data', 'descricao')
     list_filter = ('categoria', 'data')
     
 
 
 @admin.register(Saida)
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'categoria', 'valor', 'descricao', 'data')
+    fields = ['categoria', 'valor', 'data', 'descricao']
+    list_display = ('id', 'categoria', 'valor', 'data', 'descricao')
     list_filter = ('categoria', 'data')
 
 
