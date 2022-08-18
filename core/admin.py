@@ -2,7 +2,6 @@ from django.contrib import admin
 from .models import CategoriaEntrada, CategoriaSaida, Entrada, Saida, Poupanca
 
 
-
 @admin.register(CategoriaEntrada)
 class CategoriaEntradaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome')
