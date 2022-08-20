@@ -196,7 +196,7 @@ def pesquisa_entradas(request):
                     }
                     return render(request, 'pesquisa_entradas.html', context)
                 else:
-                    entradas = Entrada.objects.all().filter(data__month=mes_pes, categoria__nome=cat_pes)
+                    entradas = Entrada.objects.all().filter(data__month=mes_pes, categoria__id=cat_pes)
                     soma = 0
                     for entrada in entradas:
                         soma += entrada.valor
